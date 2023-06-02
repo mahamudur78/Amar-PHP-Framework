@@ -3,7 +3,7 @@
 
 
 
-.heaccess File
+# .heaccess File
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
