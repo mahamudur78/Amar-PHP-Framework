@@ -7,7 +7,7 @@
         }
     ?>
     
-    <form action="http://localhost/amar-store/index/insertCategory" method="post">
+    <form action="http://localhost/amar-store/Category/insertCategory" method="post">
         <table>
             <tr>
                 <td>Name</td>
