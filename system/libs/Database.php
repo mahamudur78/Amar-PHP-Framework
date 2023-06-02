@@ -31,6 +31,24 @@
             return $stmt->execute();
 
         }
+
+        // Update
+        public function update($table, $data, $cond){
+            $updateKeys = null;
+            foreach($data as $key => $value){
+                $updateKeys .= "$key=:$key,";
+            }
+            $updateKeys = rtrim($updateKeys, ',');
+
+            
+            $sql = "UPDATE $table SET $updateKeys WHERE $cond";
+            $stmt = $this->prepare($sql);
+
+            // foreach($data as $key => $value){
+            //     $stmt->bindParam(":$key", $value);
+            // }
+            return $stmt->execute($data);
+        }
     }
 
 ?>

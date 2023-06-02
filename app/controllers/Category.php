@@ -50,5 +50,21 @@
 
         }
 
+        public function updateCat(){
+            $table = "category";
+
+            $data = array(
+                'name' => 'Mahamudur',
+                'title' => 'Rahaman'
+            );
+
+            $cond = 'ID = 1';
+
+            $catModel = $this->load->model('catModel');
+            $catModel->catUpdate( $table, $data, $cond );
+
+
+        }
+
     }
 ?>
