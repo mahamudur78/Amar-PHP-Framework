@@ -23,5 +23,9 @@
         public function catUpdate( $table, $data, $cond ){
             return $this->db->update( $table, $data, $cond );
         }
+
+        public function delCatById($table, $cond, $limit = 1){
+            return $this->db->delete($table, $cond, $limit);
+        }
     }
 ?>

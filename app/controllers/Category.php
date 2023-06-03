@@ -52,18 +52,21 @@
 
         public function updateCat(){
             $table = "category";
-
             $data = array(
                 'name' => 'Mahamudur',
                 'title' => 'Rahaman'
             );
-
             $cond = 'ID = 1';
 
             $catModel = $this->load->model('catModel');
             $catModel->catUpdate( $table, $data, $cond );
+        }
 
-
+        public function deleteCatById(){
+            $table = "category";
+            $cond = 'id=46';
+            $catModel = $this->load->model('catModel');
+            $catModel->delCatById($table, $cond);
         }
 
     }

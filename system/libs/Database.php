@@ -39,15 +39,20 @@
                 $updateKeys .= "$key=:$key,";
             }
             $updateKeys = rtrim($updateKeys, ',');
-
-            
+ 
             $sql = "UPDATE $table SET $updateKeys WHERE $cond";
             $stmt = $this->prepare($sql);
 
-            // foreach($data as $key => $value){
-            //     $stmt->bindParam(":$key", $value);
-            // }
-            return $stmt->execute($data);
+            foreach($data as $key => $value){
+                $stmt->bindParam(":$key", $value);
+            }
+            return $stmt->execute();
+        }
+
+        //Delete
+        public function delete($table, $cond, $limit){
+            $sql = "DELETE FROM $table WHERE $cond LIMIT $limit";
+            return $this->exec($sql);
         }
     }
 
