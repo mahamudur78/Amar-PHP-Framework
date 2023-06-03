@@ -52,14 +52,28 @@
 
         public function updateCat(){
             $table = "category";
+
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $title = $_POST['title'];
+
             $data = array(
-                'name' => 'Mahamudur',
-                'title' => 'Rahaman'
+                'name' => $name,
+                'title' => $title
             );
-            $cond = 'ID = 1';
+            $cond = "ID = $id";
 
             $catModel = $this->load->model('catModel');
-            $catModel->catUpdate( $table, $data, $cond );
+            $result = $catModel->catUpdate( $table, $data, $cond );
+
+            $messageData = array();
+            if($result == 1){
+                $messageData['msg'] = "Category Updated Successfully...";
+            }else{
+                $messageData['msg'] = "Category Not Updated...";
+            }
+
+            $this->load->view('addCategory', $messageData);
         }
 
         public function deleteCatById(){
@@ -69,5 +83,13 @@
             $catModel->delCatById($table, $cond);
         }
 
+        public function updateCategory(){
+            $data = array();
+            $table = 'category';
+            $id = 1;
+            $catModel = $this->load->model('catModel');
+            $data['catUpdate'] = $catModel->catById( $table, $id );
+            $this->load->view('catUpdate', $data);
+        }
     }
 ?>
