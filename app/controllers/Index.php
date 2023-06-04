@@ -12,7 +12,10 @@
         }
 
         public function home(){
-           $this->load->view('home');
+           $this->load->view('header');
+           $this->load->view('content');
+           $this->load->view('sidebar');
+           $this->load->view('fooder');
         }
 
         
