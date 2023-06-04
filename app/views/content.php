@@ -1,4 +1,5 @@
-
+<h3>Home</h3>
+<div class="content">
 
     <article class="post">  
         <?php foreach($allpost as $key => $value): ?>

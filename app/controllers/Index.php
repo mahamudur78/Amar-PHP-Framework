@@ -13,11 +13,7 @@
 
         public function home(){
            $this->load->view('header');
-           $data = array();
-           $data['title'] = "Home";
-           $this->load->view('headerTitle', $data);
-
-           
+           $data = array();          
            $table = 'post';
            $postModel = $this->load->model('PostModel');
            $data['allpost'] = $postModel->getAllPost( $table );
@@ -30,9 +26,6 @@
         public function postDetails(){
             $this->load->view('header');
             $data = array();
-            $data['title'] = "Post Details";
-            $this->load->view('headerTitle', $data);
-
             $table = 'post';
             $postModel = $this->load->model('PostModel');
             $data['postDetails'] = $postModel->getPostDetails( $table );
