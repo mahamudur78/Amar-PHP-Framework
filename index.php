@@ -4,6 +4,8 @@
         include_once "system/libs/".$class.".php";
     });
 
+    include_once "app/config/config.php";
+
     $url = isset( $_GET['url'] ) ? $_GET['url'] : null;
 
     if( $url != null ){

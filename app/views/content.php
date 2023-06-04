@@ -1,31 +1,20 @@
 
-<div class="main-content">
-		<h3>Home</h3>
-            <div class="content">
-    <article class="post">
-        
-        <div class="post-content">
-            <h2>My Blog Post Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor risus eget massa dictum, id posuere nisi venenatis. Sed volutpat metus a purus tempor, sed cursus nunc aliquet.</p>
-            <a class="read-more" href="#">Read More...</a>
-        </div>
-        <div class="post-content">
-            <h2>My Blog Post Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor risus eget massa dictum, id posuere nisi venenatis. Sed volutpat metus a purus tempor, sed cursus nunc aliquet.</p>
-            <a class="read-more" href="#">Read More...</a>
-        </div>
-        <div class="post-content">
-            <h2>My Blog Post Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor risus eget massa dictum, id posuere nisi venenatis. Sed volutpat metus a purus tempor, sed cursus nunc aliquet.</p>
-            <a class="read-more" href="#">Read More...</a>
-        </div>
-        <div class="post-content">
-            <h2>My Blog Post Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor risus eget massa dictum, id posuere nisi venenatis. Sed volutpat metus a purus tempor, sed cursus nunc aliquet.</p>
-            <a class="read-more" href="#">Read More...</a>
-        </div>
 
+    <article class="post">  
+        <?php foreach($allpost as $key => $value): ?>
+            <div class="post-content">
+                
+                <h2><a href="<?php echo BASE_URL ?>/index/postDetails/<?php echo $value['id'] ?>"><?php echo $value['title'] ?></a></h2>
+                <p><?php 
+                    $text = $value['content'];
+                    if($text > 200){
+                        echo substr($text, 0, 200);
+                    }
 
+                ?></p>
+                <a class="read-more" href="<?php echo BASE_URL ?>/index/postDetails/<?php echo $value['id'] ?>">Read More...</a>
+            </div>
+        <?php endforeach ?>
     </article>
 
             

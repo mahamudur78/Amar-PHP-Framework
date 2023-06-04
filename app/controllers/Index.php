@@ -13,9 +13,34 @@
 
         public function home(){
            $this->load->view('header');
-           $this->load->view('content');
+           $data = array();
+           $data['title'] = "Home";
+           $this->load->view('headerTitle', $data);
+
+           
+           $table = 'post';
+           $postModel = $this->load->model('PostModel');
+           $data['allpost'] = $postModel->getAllPost( $table );
+           $this->load->view('content', $data);
+
            $this->load->view('sidebar');
            $this->load->view('fooder');
+        }
+
+        public function postDetails(){
+            $this->load->view('header');
+            $data = array();
+            $data['title'] = "Post Details";
+            $this->load->view('headerTitle', $data);
+
+            $table = 'post';
+            $postModel = $this->load->model('PostModel');
+            $data['postDetails'] = $postModel->getPostDetails( $table );
+            $this->load->view('postDetails', $data);
+
+            $this->load->view('sidebar');
+            $this->load->view('fooder');
+ 
         }
 
         

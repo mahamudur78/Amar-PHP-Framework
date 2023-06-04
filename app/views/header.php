@@ -4,7 +4,7 @@
 	<title>Your Page Title</title>
 	<style>
 		/* CSS styling for the layout */
-		.container {display: flex;flex-direction: column;min-height: 100vh;width: 1200px;margin: auto;}
+		.container {/*display: flex;flex-direction: column;*/min-height: 100vh;width: 1200px;margin: auto;}
 		header{background-color:#333;color:#fff;padding:20px}
 		footer{background-color:#333;color:#fff;padding:20px;margin-top:auto}
 		.main-content {border: 3px solid #bfbfbf;margin-top: 5px;margin-bottom: 5px;}
@@ -25,4 +25,5 @@
 	<header>
     	<h1>My Website</h1>
 	</header>
+	<div class="main-content">
 	
