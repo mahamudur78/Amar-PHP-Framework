@@ -16,6 +16,7 @@
            $data = array();          
            $table = 'post';
            $postModel = $this->load->model('PostModel');
+           $data['pageTitle'] = 'Home';
            $data['allpost'] = $postModel->getAllPost( $table );
            $this->load->view('content', $data);
 
@@ -23,19 +24,32 @@
            $this->load->view('fooder');
         }
 
-        public function postDetails(){
+        public function postDetails($id){
             $this->load->view('header');
             $data = array();
-            $table = 'post';
+            $tablePost = 'post';
+            $tableCat = 'category';
             $postModel = $this->load->model('PostModel');
-            $data['postDetails'] = $postModel->getPostDetails( $table );
-            $this->load->view('postDetails', $data);
+            $data['pageTitle'] = 'Post Details';
+            $data['postbyid'] = $postModel->getPostById( $tablePost, $tableCat, $id );
+            $this->load->view('details', $data);
 
             $this->load->view('sidebar');
             $this->load->view('fooder');
- 
         }
 
-        
+        public function postByCat($id){
+            $this->load->view('header');
+            $data = array();          
+            $tablePost = 'post';
+            $tableCat = 'category';
+            $postModel = $this->load->model('PostModel');
+            $data['pageTitle'] = 'Category Post';
+            $data['allpost'] = $postModel->getPostByCat( $tablePost, $tableCat, $id );
+            $this->load->view('content', $data);
+ 
+            $this->load->view('sidebar');
+            $this->load->view('fooder');
+        }
     }
 ?>

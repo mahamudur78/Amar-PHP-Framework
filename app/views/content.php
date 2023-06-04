@@ -1,4 +1,4 @@
-<h3>Home</h3>
+<h3><?php echo $pageTitle; ?></h3>
 <div class="content">
 
     <article class="post">  
