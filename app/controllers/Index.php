@@ -21,8 +21,9 @@
             $data['allpost'] = $postModel->getAllPost( $tablePost, $tableCat );
             $this->load->view('content', $data);
 
-           $this->load->view('sidebar');
-           $this->load->view('fooder');
+            $data['catlist'] = $postModel->getAllCategory( $tableCat );
+            $this->load->view('sidebar', $data);
+            $this->load->view('fooder');
         }
 
         public function postDetails($id){
@@ -35,7 +36,9 @@
             $data['postbyid'] = $postModel->getPostById( $tablePost, $tableCat, $id );
             $this->load->view('details', $data);
 
-            $this->load->view('sidebar');
+            $data['catlist'] = $postModel->getAllCategory( $tableCat );
+            $this->load->view('sidebar', $data);
+
             $this->load->view('fooder');
         }
 
@@ -49,7 +52,9 @@
             $data['allpost'] = $postModel->getPostByCat( $tablePost, $tableCat, $id );
             $this->load->view('content', $data);
  
-            $this->load->view('sidebar');
+            $data['catlist'] = $postModel->getAllCategory( $tableCat );
+            $this->load->view('sidebar', $data);
+
             $this->load->view('fooder');
         }
     }

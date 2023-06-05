@@ -25,7 +25,7 @@
 		.title h2 {margin: 0;}
 		.title h2 a {text-decoration: none;}
 		.title p {margin: 0; padding: 5px 0;}
-		.title p a {text-decoration: none;}
+		/* .title p a {text-decoration: none;} */
 		.desc p {line-height: 24px; font-size: 18px; text-align: justify;}
 
 	</style>

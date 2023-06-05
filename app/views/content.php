@@ -18,8 +18,8 @@
                 </div>
                 <p><?php 
                     $text = $value['content'];
-                    if($text > 200){
-                        echo substr($text, 0, 200);
+                    if($text > 300){
+                        echo substr($text, 0, 300);
                     }
 
                 ?></p>

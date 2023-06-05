@@ -29,5 +29,10 @@
                     WHERE $tableCat.id = $id";
             return $this->db->select( $sql );
         }
+
+        public function getAllCategory($table){
+            $sql = "select * from $table ORDER BY id DESC LIMIT 5";
+            return $this->db->select( $sql );
+        }
     }
 ?>
