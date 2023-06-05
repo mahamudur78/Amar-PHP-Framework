@@ -12,13 +12,14 @@
         }
 
         public function home(){
-           $this->load->view('header');
-           $data = array();          
-           $table = 'post';
-           $postModel = $this->load->model('PostModel');
-           $data['pageTitle'] = 'Home';
-           $data['allpost'] = $postModel->getAllPost( $table );
-           $this->load->view('content', $data);
+            $this->load->view('header');
+            $data = array();          
+            $tablePost = 'post';
+            $tableCat = 'category';
+            $postModel = $this->load->model('PostModel');
+            $data['pageTitle'] = 'Home';
+            $data['allpost'] = $postModel->getAllPost( $tablePost, $tableCat );
+            $this->load->view('content', $data);
 
            $this->load->view('sidebar');
            $this->load->view('fooder');
