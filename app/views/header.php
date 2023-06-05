@@ -28,6 +28,16 @@
 		/* .title p a {text-decoration: none;} */
 		.desc p {line-height: 24px; font-size: 18px; text-align: justify;}
 
+		.search-option{padding: 15px; overflow: hidden;}
+		.menu{float: left; font-size: 18px;margin-top: 5px;}
+		.menu a{font-size: 25px;
+    text-decoration: none;}
+		.search{float: right;}
+		.search input{padding: 10px;}
+
+		.catsearch{border: 1px solid #ddd; font-size: 16px; padding: 9px;}
+		.submitbtn{font-size: 18px; padding: 7px;}
+
 	</style>
 </head>
 <body>

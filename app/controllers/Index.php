@@ -14,6 +14,8 @@
         public function home(){
             //Header
             $this->load->view('header');
+            //Search
+            $this->load->view('search');
             //Content
             $data = array();          
             $tablePost = 'post';
@@ -33,6 +35,8 @@
         public function postDetails($id){
             //Header
             $this->load->view('header');
+            //Search
+            $this->load->view('search');
             //Content
             $data = array();
             $tablePost = 'post';
@@ -52,6 +56,8 @@
         public function postByCat($id){
             //Header
             $this->load->view('header');
+            //Search
+            $this->load->view('search');
             //Content
             $data = array();          
             $tablePost = 'post';
