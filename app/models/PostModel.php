@@ -34,5 +34,10 @@
             $sql = "select * from $table ORDER BY id DESC LIMIT 5";
             return $this->db->select( $sql );
         }
+
+        public function getLarestPost( $tablePost ){
+            $sql = "select * from $tablePost ORDER BY id DESC LIMIT 5";
+            return $this->db->select( $sql );
+        }
     }
 ?>
