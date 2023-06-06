@@ -3,7 +3,12 @@
         
         public function __construct($dsn, $user, $password)
         {
-            parent::__construct($dsn, $user, $password);
+            try {
+                parent::__construct($dsn, $user, $password);
+            } catch(PDOException $e) {
+                echo "SQL Error Message: ".$e->getMessage();
+                die();
+            }
         }
 
         //select
