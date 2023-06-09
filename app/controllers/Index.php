@@ -11,6 +11,10 @@
             parent::__construct();    
         }
 
+        public function Index(){
+            $this->home();
+        }
+
         public function home(){
             $data = array();          
             $tablePost = 'post';
@@ -33,7 +37,11 @@
             $this->load->view('fooder');
         }
 
-        public function postDetails($id){
+        public function postDetails($id = 0){
+            if($id == 0){
+                header('Location: '.BASE_URL.'/Index');
+            }
+
             $data = array();
             $tablePost = 'post';
             $tableCat = 'category';
@@ -46,7 +54,7 @@
             $this->load->view('search', $data);
             //Content
             $data['pageTitle'] = 'Post Details';
-            $data['postbyid'] = $postModel->getPostById( $tablePost, $tableCat, $id );
+            $data['postbyid'] = $postModel->getPostById( $tablePost, $tableCat, (int)$id );
             $this->load->view('details', $data);
             //SIdebar
             $data['larestPost'] = $postModel->getLarestPost( $tablePost );
@@ -55,7 +63,11 @@
             $this->load->view('fooder');
         }
 
-        public function postByCat($id){
+        public function postByCat($id = 0){
+            if($id == 0){
+                header('Location: '.BASE_URL.'/Index');
+            }
+
             $data = array();          
             $tablePost = 'post';
             $tableCat = 'category';
@@ -68,7 +80,7 @@
             $this->load->view('search', $data);
             //Content
             $data['pageTitle'] = 'Category Post';
-            $data['allpost'] = $postModel->getPostByCat( $tablePost, $tableCat, $id );
+            $data['allpost'] = $postModel->getPostByCat( $tablePost, $tableCat, (int)$id );
             $this->load->view('content', $data);
             //SIdebar
             $data['larestPost'] = $postModel->getLarestPost( $tablePost );
@@ -77,7 +89,7 @@
             $this->load->view('fooder');
         }
 
-        public function search(  ){
+        public function search(){
             $data = array();
             $Keyword = $_REQUEST['keyword'];     
             $catId = $_REQUEST['cat'];     
