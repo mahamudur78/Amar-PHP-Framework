@@ -4,5 +4,13 @@
         {
             parent::__construct();
         }
+
+        public function Index(){
+            $this->home();
+        }
+
+        public function home(){
+            $this->load->view('admin/home');
+        }
     }
 ?>

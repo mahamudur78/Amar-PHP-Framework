@@ -65,6 +65,12 @@
             $stmt->execute(array($username, $password));
             return $stmt->rowCount();
         }
+
+        public function selectUser($sql, $username, $password){
+            $stmt = $this->prepare($sql);
+            $stmt->execute(array($username, $password));
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 
 ?>
