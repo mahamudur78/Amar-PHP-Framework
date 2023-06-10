@@ -14,10 +14,17 @@
             } else {
                 return false;
             }
-            
         }
 
-        public function destroy(){
+        public static function checkSession(){
+            self::init();
+            if(self::get('login') == false){
+                self::destroy();
+                header('Location: ' .BASE_URL.'/Login');
+            }
+        }
+
+        public static function destroy(){
             session_destroy();
         }
     }

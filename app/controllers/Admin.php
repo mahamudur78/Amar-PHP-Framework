@@ -3,6 +3,7 @@
         public function __construct()
         {
             parent::__construct();
+            Session::checkSession();
         }
 
         public function Index(){

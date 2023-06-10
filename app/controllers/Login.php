@@ -10,7 +10,14 @@
         }
 
         public function login(){
-            $this->load->view('admin/login');
+            Session::init();
+           
+            if(Session::get('login') == true){
+                header('Location: ' .BASE_URL.'/Admin');
+            }else{
+                $this->load->view('login/login');
+            }
+            
         }
 
         public function loginAuth(){
@@ -24,13 +31,21 @@
             if($count > 0){
                 $result = $loginModel->getUserData($table, $username, $password);
                 Session::init();
+                Session::set('login', true); 
                 Session::set('username', $result[0]['username']); 
                 Session::set('userID', $result[0]['id']); 
                 header('Location: ' .BASE_URL.'/Admin');
             }else{
+
                 header('Location: ' .BASE_URL.'/Login');
             }
 
+        }
+
+        public function logout(){
+            Session::init();
+            Session::destroy();
+            header('Location: ' .BASE_URL.'/Login');
         }
 
     }
