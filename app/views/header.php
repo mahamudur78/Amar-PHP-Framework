@@ -13,11 +13,7 @@
 		.content{flex: 1;display: flex;}
 		.post{flex:3;background-color:#f1f1f1;padding:20px}
 		.sidebar{flex:1;background-color:#ddd;padding:20px}
-		.sidebar h3 {border: 1px solid #333;padding: 5px;margin-block-end: 0px;}
-		.sidebar ul{padding-inline-start:0px}
-		.sidebar ul li {list-style: none;margin-left: 0;padding: 10px;background: #545454; border-bottom: 1px solid white;}
-		.sidebar ul li:hover{background: #333;}
-		.sidebar ul li a{text-decoration: none;color: #fff; display: block;}
+		
 		.read-more {text-decoration: none;}
 
 		.post-content {margin-bottom: 45px;}

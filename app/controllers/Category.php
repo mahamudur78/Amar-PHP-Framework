@@ -47,7 +47,6 @@
             }
 
             $this->load->view('addCategory', $messageData);
-
         }
 
         public function updateCat(){
