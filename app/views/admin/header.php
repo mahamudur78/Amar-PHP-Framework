@@ -28,6 +28,8 @@
     form input[type="text"] {width: 97%;padding: 8px;border: 1px solid #ddd;border-radius: 4px;}
     form input[type="submit"] {background-color: #4CAF50;color: #fff;border: none;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;border-radius: 4px;cursor: pointer;margin-top: 10px;}
 
+    .categoryList {border: 1px solid #ddd;font-size: 16px;padding: 9px; width: 250px;}
+
     
     footer{background-color:#333;color:#fff;padding:20px;text-align:center}
   </style>

@@ -18,8 +18,8 @@
     <h3>Post Option</h3>
     <nav>
         <ul>
-            <li><a href="#">Add Article</a></li>
-            <li><a href="#">Article list</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/Admin/addArtical">Add Article</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/Admin/articleList">Article list</a></li>
         </ul>
     </nav>
 </div>
