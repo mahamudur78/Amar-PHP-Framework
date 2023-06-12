@@ -37,8 +37,8 @@
             $this->load->view('fooder');
         }
 
-        public function postDetails($id = 0){
-            if($id == 0){
+        public function postDetails($id = null){
+            if($id == null){
                 header('Location: '.BASE_URL.'/Index');
             }
 
@@ -63,8 +63,8 @@
             $this->load->view('fooder');
         }
 
-        public function postByCat($id = 0){
-            if($id == 0){
+        public function postByCat($id = null){
+            if($id == null){
                 header('Location: '.BASE_URL.'/Index');
             }
 
