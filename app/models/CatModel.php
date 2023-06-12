@@ -5,7 +5,7 @@
         }
 
         public function catList( $table ){
-            $sql = "select * from $table";
+            $sql = "select * from $table ORDER BY id DESC";
             return $this->db->select( $sql );
         } 
         

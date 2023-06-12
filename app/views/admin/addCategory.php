@@ -1,12 +1,7 @@
 <div class="content">
     <h1>Add Category</h1>
-    <?php 
-        if( isset($msg)){
-            echo "<span style='color:blue; font-weight:bold'>". $msg."</span>";
-        }
-    ?>
-
-    <form action="http://localhost/amar-mvc/Category/insertCategory" method="post">
+    
+    <form action="<?php echo BASE_URL ?>/Admin/insertCategory" method="post">
         <table>
             <tr>
                 <td>Name</td>

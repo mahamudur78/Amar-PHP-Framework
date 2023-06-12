@@ -15,6 +15,11 @@
     .dashboard-manu h3 {background-color: #333;color: #fff;padding: 5px;}
 
     .content{flex:3;padding:20px}
+
+    table {width: 100%;border-collapse: collapse;}
+    table th,table td {padding: 8px;border: 1px solid #ddd;    }
+    table th {background-color: #f1f1f1;}
+
     header{background-color:#333;color:#fff;padding:20px}
     nav ul{list-style-type:none;margin:0;padding:0}
     nav ul li a{color:#333;text-decoration:none;padding:5px}
