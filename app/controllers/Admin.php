@@ -129,28 +129,33 @@
             $this->load->view('admin/fooder');
         }
 
-        public function insertPost(){
-            $table = "post";
+        public function addNewPost(){
+            if (!$_POST['submit']) {
+                header("Location:".BASE_URL.'/Admin');
+            } else {
+                $table = "post";
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $cat = $_POST['cat'];
 
-            $title = $_POST['title'];
-            $content = $_POST['content'];
+                $data = array(
+                    'title' => $title,
+                    'content' => $content,
+                    'cat' => $cat
+                );
 
-            $data = array(
-                'title' => $title,
-                'content' => $content
-            );
+                $PostModel = $this->load->model('PostModel');
+                $result = $PostModel->insertPost($table, $data);
 
-            $PostModel = $this->load->model('PostModel');
-            $result = $PostModel->insertPost($table, $data);
-
-            $messageData = array();
-            if($result == 1){
-                $messageData['msg'] = "Post Added Successfully...";
-            }else{
-                $messageData['msg'] = "Post Not Addad...";
+                $messageData = array();
+                if($result == 1){
+                    $messageData['msg'] = "Post Added Successfully...";
+                }else{
+                    $messageData['msg'] = "Post Not Addad...";
+                }
+                $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
+                header("Location:{$url}");
             }
-            $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
-            header("Location:{$url}");
         }
 
         public function articleList(){
@@ -161,7 +166,8 @@
             $tablePost = 'post';
             $tableCat = 'category';
             $PostModel = $this->load->model('PostModel');
-            $data['allPost'] = $PostModel->getPostList( $tablePost, $tableCat );
+            $data['allPost'] = $PostModel->getPostList( $tablePost );
+            $data['allCategory'] = $PostModel->categoryList( $tableCat);
             $this->load->view('admin/postList', $data);
 
             $this->load->view('admin/fooder');

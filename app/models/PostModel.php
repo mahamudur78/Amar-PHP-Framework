@@ -14,14 +14,15 @@
             return $this->db->select( $sql );
         } 
 
-        public function getPostList( $tablePost, $tableCat ){
-            // $sql = "select * from $table ORDER BY id DESC LIMIT 3";
-            $sql = "SELECT $tablePost.*, $tableCat.name FROM $tablePost
-                    INNER JOIN $tableCat
-                    ON $tablePost.cat = $tableCat.id
-                    ORDER BY id DESC";
+        public function getPostList( $tablePost ){
+            $sql = "select * from $tablePost ORDER BY id DESC";
             return $this->db->select( $sql );
         } 
+
+        public function categoryList( $catTable){
+            $sql = "select * from $catTable ORDER BY id DESC";
+            return $this->db->select( $sql);
+        }
 
         public function getPostById( $tablePost, $tableCat, $id ){
             $sql = "SELECT $tablePost.*, $tableCat.name FROM $tablePost

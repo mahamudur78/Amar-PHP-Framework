@@ -2,7 +2,7 @@
 <div class="content">
     <h1>Add Post</h1>
     
-    <form action="<?php echo BASE_URL ?>/Admin/insertPost" method="post">
+    <form action="<?php echo BASE_URL ?>/Admin/addNewPost" method="post">
         <table>
             <tr>
                 <td>Title</td>
@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <td>content</td>
-                <td><input type="text" name="content" id="editor" require="1"></td>
+                <td><textarea type="text" name="content" id="editor" require="1"></textarea></td>
                 <script> ClassicEditor .create( document.querySelector( '#editor' ) ) .catch( error => { console.error( error ); });</script>
             </tr>
             <tr>
