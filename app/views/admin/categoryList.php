@@ -5,7 +5,7 @@
 		if(!empty($_GET['msg'])){
 			$msg = unserialize(urldecode($_GET['msg']));
 			foreach($msg as $key => $value){
-				echo "<span style='color:blue; font-weight:bold'>". $value."</span>";
+				echo "<span style='color:blue; font-weight:bold; display: block; margin-bottom: 10px'>". $value."</span>";
 			}
 			
 		}
@@ -28,10 +28,10 @@
 					<td><?php echo $value['name'] ?></td>
 					<td><?php echo $value['title'] ?></td>
 					<td>
-						<a href="<?php echo BASE_URL ?>/Admin/categoryEdit/<?php echo $value['id'] ?>">Edit</a> || <a href="<?php echo BASE_URL ?>/Admin/categoryDelete/<?php echo $value['id'] ?>">Delete</a> 
+						<a href="<?php echo BASE_URL ?>/Admin/categoryEdit/<?php echo $value['id'] ?>">Edit</a> || <a onclick="return confirm('Are you sure to delete!')" href="<?php echo BASE_URL ?>/Admin/categoryDelete/<?php echo $value['id'] ?>">Delete</a> 
 					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-	</div>
+</div>
