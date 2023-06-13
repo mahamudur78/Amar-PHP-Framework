@@ -1,10 +1,7 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 <div class="content">
     <h1>Add Post</h1>
-
-    
     <?php 
-
 		if(!empty($_GET['errorMessage'])){
 			$errorMessage = unserialize(urldecode($_GET['errorMessage']));
             // echo "<pre>";

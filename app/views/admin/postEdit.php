@@ -1,6 +1,38 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 <div class="content">
     <h1>Edit Post</h1>
+    <?php 
+        if(!empty($_GET['errorMessage'])){
+            $errorMessage = unserialize(urldecode($_GET['errorMessage']));
+            // echo "<pre>";
+            // print_r($errorMessage);
+            
+            echo '<div style="color:red; border:1px solid red; padding:5px 10px; margin:5px;">';
+                foreach($errorMessage as $key => $value){
+                    switch ($key) {
+                        case 'title':
+                            foreach($value as $val){
+                                echo "Title: {$val}</br>";
+                            }
+                            break;
+
+                        case 'content':
+                            foreach($value as $val){
+                                echo "Content: {$val}</br>";
+                            }
+                            break;
+                        case 'cat':
+                            foreach($value as $val){
+                                echo "Category: {$val}</br>";
+                            }
+                            break;
+                    }
+                }
+            echo '</div>';
+        }
+        ?>
+
+
     <?php foreach($postByID as $key => $value): ?>
         <form action="<?php echo BASE_URL ?>/Admin/postUpdate/<?php echo $value['id'] ?>" method="post">
             <table> 

@@ -210,31 +210,35 @@
         }
 
         public function postUpdate($id = null){
-            $table = "post";
+            $input = $this->load->validation('Form');
+            $input->post('title')->isEmpty()->length(10,500);
+            $input->post('content')->isEmpty();
+            $input->post('cat')->isEmpty();
 
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $cat = $_POST['cat'];
-
-            $data = array(
-                'title' => $title,
-                'content' => $content,
-                'cat' => $cat
-            );
-            $cond = "id = {$id}";
+            if($input->submit()){
+                $table = "post";
+                $cond = "id = {$id}";
+                $data = array(
+                    'title' => $input->values['title'],
+                    'content' => $input->values['content'],
+                    'cat' => $input->values['cat']
+                );
             
+                $postModel = $this->load->model('PostModel');
+                $result = $postModel->postUpdate( $table, $data, $cond );
 
-            $postModel = $this->load->model('PostModel');
-            $result = $postModel->postUpdate( $table, $data, $cond );
-
-            $messageData = array();
-            if($result == 1){
-                $messageData['msg'] = "Post Update Successfully...";
+                $messageData = array();
+                if($result == 1){
+                    $messageData['msg'] = "Post Update Successfully...";
+                }else{
+                    $messageData['msg'] = "Post Not Update...";
+                }
+                $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
+                header("Location:{$url}");
             }else{
-                $messageData['msg'] = "Post Not Update...";
+                $url = BASE_URL."/Admin/postEdit/{$id}?errorMessage=".urlencode(serialize($input->errors));
+                header("Location:{$url}");
             }
-            $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
-            header("Location:{$url}");
         }
         
     }
