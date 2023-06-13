@@ -41,7 +41,7 @@
         }
 
         public function getAllCategory($table){
-            $sql = "select * from $table ORDER BY id DESC LIMIT 5";
+            $sql = "select * from $table ORDER BY id DESC";
             return $this->db->select( $sql );
         }
 
@@ -87,6 +87,20 @@
 
         public function insertPost($table, $data){
             return $this->db->insert($table, $data);
+        }
+
+        public function delPostById($table, $cond, $limit = 1){
+            return $this->db->delete($table, $cond, $limit);
+        }
+
+        public function postUpdateById( $table, $id ){
+            $sql = "select * from $table where id=:id";
+            $data = array( ':id' => $id );
+            return $this->db->select( $sql, $data );
+        }
+
+        public function postUpdate( $table, $data, $cond ){
+            return $this->db->update( $table, $data, $cond );
         }
     }
 ?>

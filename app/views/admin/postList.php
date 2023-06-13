@@ -39,14 +39,11 @@
                         ?>
                     </td>
 					<td>
-						<?php 
-						//print_r($allCategory);
-
-						foreach($allCategory as $catKey => $catValue){
+						<?php foreach($allCategory as $catKey => $catValue){
 							if($catValue['id'] == $value['cat']){
 								echo $catValue['name'];
 							}
-						} ?>
+						}?>
 					</td>
 					<td>
 						<a href="<?php echo BASE_URL ?>/Admin/postEdit/<?php echo $value['id'] ?>">Edit</a> || <a onclick="return confirm('Are you sure to delete!')" href="<?php echo BASE_URL ?>/Admin/postDelete/<?php echo $value['id'] ?>">Delete</a> 

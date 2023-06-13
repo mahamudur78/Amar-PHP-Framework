@@ -172,6 +172,67 @@
 
             $this->load->view('admin/fooder');
         }
+
+        public function postEdit($id = null){
+            $data = array();
+            $table = 'post';
+            $tableCat = 'category';
+            $id = $id;
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/sidebar');
+
+            $PostModel = $this->load->model('PostModel');
+            $data['postByID'] = $PostModel->postUpdateById( $table, $id );
+            $data['catlist'] = $PostModel->getAllCategory( $tableCat );
+            $this->load->view('admin/postEdit', $data);
+
+            $this->load->view('admin/fooder');
+        }
+
+        public function postDelete( $id=null ){
+            $table = "post";
+            $cond = "id={$id}";
+            $PostModel = $this->load->model('PostModel');
+            $result = $PostModel->delPostById($table, $cond);
+
+            $messageData = array();
+            if($result == 1){
+                $messageData['msg'] = "Category Delete Successfully...";
+            }else{
+                $messageData['msg'] = "Category Not Delete...";
+            }
+            $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
+            header("Location:{$url}");
+        }
+
+        public function postUpdate($id = null){
+            $table = "post";
+
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $cat = $_POST['cat'];
+
+            $data = array(
+                'title' => $title,
+                'content' => $content,
+                'cat' => $cat
+            );
+            $cond = "id = {$id}";
+            
+
+            $postModel = $this->load->model('PostModel');
+            $result = $postModel->postUpdate( $table, $data, $cond );
+
+            $messageData = array();
+            if($result == 1){
+                $messageData['msg'] = "Post Update Successfully...";
+            }else{
+                $messageData['msg'] = "Post Not Update...";
+            }
+            $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
+            header("Location:{$url}");
+        }
         
     }
 ?>
