@@ -130,18 +130,17 @@
         }
 
         public function addNewPost(){
-            if (!$_POST['submit']) {
-                header("Location:".BASE_URL.'/Admin');
-            } else {
-                $table = "post";
-                $title = $_POST['title'];
-                $content = $_POST['content'];
-                $cat = $_POST['cat'];
+            $input = $this->load->validation('Form');
+            $input->post('title')->isEmpty()->length(10,500);
+            $input->post('content')->isEmpty();
+            $input->post('cat')->isEmpty();
 
+            if($input->submit()){
+                $table = "post";
                 $data = array(
-                    'title' => $title,
-                    'content' => $content,
-                    'cat' => $cat
+                    'title' => $input->values['title'],
+                    'content' => $input->values['content'],
+                    'cat' => $input->values['cat']
                 );
 
                 $PostModel = $this->load->model('PostModel');
@@ -155,7 +154,11 @@
                 }
                 $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
                 header("Location:{$url}");
-            }
+            }else{
+
+                $url = BASE_URL.'/Admin/addArtical?errorMessage='.urlencode(serialize($input->errors));
+                header("Location:{$url}");
+            }   
         }
 
         public function articleList(){
