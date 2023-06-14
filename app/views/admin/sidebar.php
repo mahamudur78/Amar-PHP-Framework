@@ -7,6 +7,7 @@
         </ul>
     </nav>
 
+    <?php if(Session::get('level') == '1'): ?>
     <h3>Manage User</h3>
     <nav>
         <ul>
@@ -14,6 +15,7 @@
             <li><a href="<?php echo BASE_URL; ?>/User/userList">User List</a></li>
         </ul>
     </nav>
+    <?php endif ?>
 
     <h3>Category Option</h3>
     <nav>

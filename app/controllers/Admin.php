@@ -177,36 +177,25 @@
         }
 
         public function postEdit($id = null){
-            $data = array();
-            $table = 'post';
-            $tableCat = 'category';
-            $id = $id;
 
-            $this->load->view('admin/header');
-            $this->load->view('admin/sidebar');
+            if($id != null){
+                $data = array();
+                $table = 'post';
+                $tableCat = 'category';
+                $id = $id;
 
-            $PostModel = $this->load->model('PostModel');
-            $data['postByID'] = $PostModel->postUpdateById( $table, $id );
-            $data['catlist'] = $PostModel->getAllCategory( $tableCat );
-            $this->load->view('admin/postEdit', $data);
+                $this->load->view('admin/header');
+                $this->load->view('admin/sidebar');
 
-            $this->load->view('admin/fooder');
-        }
+                $PostModel = $this->load->model('PostModel');
+                $data['postByID'] = $PostModel->postUpdateById( $table, $id );
+                $data['catlist'] = $PostModel->getAllCategory( $tableCat );
+                $this->load->view('admin/postEdit', $data);
 
-        public function postDelete( $id=null ){
-            $table = "post";
-            $cond = "id={$id}";
-            $PostModel = $this->load->model('PostModel');
-            $result = $PostModel->delPostById($table, $cond);
-
-            $messageData = array();
-            if($result == 1){
-                $messageData['msg'] = "Category Delete Successfully...";
+                $this->load->view('admin/fooder');
             }else{
-                $messageData['msg'] = "Category Not Delete...";
-            }
-            $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
-            header("Location:{$url}");
+                header("Location:". BASE_URL.'/Admin/articleList');   
+            } 
         }
 
         public function postUpdate($id = null){
@@ -240,6 +229,21 @@
                 header("Location:{$url}");
             }
         }
-        
+
+        public function postDelete( $id=null ){
+            $table = "post";
+            $cond = "id={$id}";
+            $PostModel = $this->load->model('PostModel');
+            $result = $PostModel->delPostById($table, $cond);
+
+            $messageData = array();
+            if($result == 1){
+                $messageData['msg'] = "Category Delete Successfully...";
+            }else{
+                $messageData['msg'] = "Category Not Delete...";
+            }
+            $url = BASE_URL.'/Admin/articleList?msg='.urlencode(serialize($messageData));
+            header("Location:{$url}");
+        }
     }
 ?>
