@@ -1,5 +1,5 @@
 <?php 
-    class manageAssets{
+    class ManageAssets{
         public static function css(){
             $cssUrl = BASE_URL ."/assets/css/";
             return array(

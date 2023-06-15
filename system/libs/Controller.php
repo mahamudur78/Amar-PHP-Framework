@@ -8,7 +8,7 @@
 
         public function cssAssetEnqueue( $handle ){
             
-            $data['css'] = manageAssets::css();
+            $data['css'] = ManageAssets::css();
                         
             foreach ($handle as $key => $value ){
                 if(isset($data['css'][$value])){
@@ -19,7 +19,7 @@
 
         public function jsAssetsEnqueue( $handle ){
            
-            $data['js'] = manageAssets::js();
+            $data['js'] = ManageAssets::js();
             
             foreach ($handle as $key => $value ){
                 //Header JS Load
