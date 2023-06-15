@@ -9,7 +9,7 @@
     $DB_Password = '';
     $DB_Charset = 'utf8';
     $DB_Table_Prefix  = '';
-
+ 
     //User Information Define
     define('BASE_URL', $site_URL);
     define('DB_HOST', $DB_Host);
@@ -18,6 +18,4 @@
     define('DB_PASSWORD', $DB_Password);
     define('DB_CHARSET', $DB_Charset);
     define('DB_TABLE_PREFIX', $DB_Table_Prefix);
-
-    $myVariable = putenv("YOUR_VARIABLE={$site_URL}");
 ?>

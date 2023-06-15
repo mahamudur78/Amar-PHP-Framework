@@ -16,6 +16,13 @@
         }
 
         public function home(){
+            $this->cssAssetEnqueue(['ht-qrcode','admin-min']);
+            $this->jsAssetsEnqueue([
+                ['easy.qrcode.min',true], 
+                ['admin-min',true],
+                'qrcode-custom'
+            ]);
+
             $data = array();          
             $tablePost = 'post';
             $tableCat = 'category';

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Your Page Title</title>
+	<?php include_once('assets/manage/assetsHader.php'); ?>
 	<style>
 		/* CSS styling for the layout */
 		.container {/*display: flex;flex-direction: column;*/min-height: 100vh;width: 1200px;margin: auto;}
