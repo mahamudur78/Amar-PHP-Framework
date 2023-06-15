@@ -19,7 +19,7 @@
             $this->cssAssetEnqueue(['ht-qrcode','admin-min']);
             $this->jsAssetsEnqueue([
                 ['easy.qrcode.min',true], 
-                ['admin-min',true],
+                ['admin-min',false],
                 'qrcode-custom'
             ]);
 
