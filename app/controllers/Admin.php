@@ -1,5 +1,5 @@
 <?php
-    class Admin extends DController{
+    class Admin extends Controller{
         public function __construct()
         {
             parent::__construct();

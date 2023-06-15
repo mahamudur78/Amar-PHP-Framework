@@ -1,5 +1,5 @@
 <?php
-    class Logout extends DController{
+    class Logout extends Controller{
         public function __construct()
         {
             parent::__construct();

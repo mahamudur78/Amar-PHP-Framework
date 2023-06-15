@@ -1,5 +1,5 @@
 <?php
-    class Login extends DController{
+    class Login extends Controller{
         public function __construct()
         {
             parent::__construct();

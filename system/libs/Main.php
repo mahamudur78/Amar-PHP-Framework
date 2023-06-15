@@ -13,7 +13,7 @@
         public function __construct()
         {
             $this->getUrl();
-            $this->loadController();
+            $this->loaController();
             $this->callMethod();
         }
 
@@ -29,7 +29,7 @@
             }
         }
 
-        public function loadController()
+        public function loaController()
         {
             if(!isset($this->url[0])){
                 include $this->controllerPath . $this->controllerName . '.php';

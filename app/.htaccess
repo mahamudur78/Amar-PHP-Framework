@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ /login [R=301,L]
+</IfModule>
+
+#Deny All Request
+Deny from all

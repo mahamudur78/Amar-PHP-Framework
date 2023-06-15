@@ -3,7 +3,7 @@
     * Index Controller
     */
     
-    class Index extends DController{
+    class Index extends Controller{
         
         
         public function __construct()

@@ -11,6 +11,10 @@
             }
         }
 
+        public static function DBPrefix( $taable ){
+            return DB_TABLE_PREFIX.$taable;
+        }
+
         //select
         public function select( $sql, $data = array(), $fetchStyle = PDO::FETCH_ASSOC ){
             $stmt = $this->prepare( $sql );
